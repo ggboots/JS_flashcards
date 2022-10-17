@@ -17,7 +17,33 @@
   flex-direction:column;
 }
 
-image{
-  height:100px;
-  width:100px;
+.cards{
+  width:540px;
+  height:820px;
 }
+
+img{
+  width:100%;
+}
+
+.front{
+  display:block;
+}
+
+.back{
+  display:none;
+}
+
+.btn-container{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;
+  width:560px;
+  height:32px;
+  padding-top:15px;
+}
+
+.btn {
+  width: 40%;
+}
+
