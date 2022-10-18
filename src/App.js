@@ -1,26 +1,31 @@
-import React from "react";
+import React, {Component} from "react";
 import Cards from "./components/Cards.js"
 import SwapButton from "./components/SwapButton.js"
 
 import testImage from "./assests/webgl.png";
 import testImage2 from "./assests/opengl_logo.png";
 
-class App extends React.Component {
+class App extends Component {
   constructor(props){
     super(props);
 
-    //this.updateCard = this.state.updateCard.bind(this);
+    // was refering to components state, updateCard is not there
+    this.updateCard = this.updateCard.bind(this);
 
     this.state = {
       cards: [
-          {id:1, name: "demo1", cardImage: testImage},
-          {id:2, name: "demo2", cardImage: testImage2}
+          {id:1, name: "demo1"},
+          {id:2, name: "demo2"},
+          {id:3, name: "demo3"},
+          {id:4, name: "demo4"},
+          {id:5, name: "demo5"},
+          {id:6, name: "demo6"}
       ],
       currentCard: {}
     }
   }
 
-  componentWillMount(){
+  componentDidMount(){
     const currentCards = this.state.cards;
 
     this.setState({
@@ -32,18 +37,19 @@ class App extends React.Component {
 
   randomCard(currentCards){
     var card = currentCards[Math.floor(Math.random() * currentCards.length)];
-    // if(card === this.state.currentCard){
-    //   this.randomCard(currentCards)
-    // }
+    if(card === this.state.currentCard){
+      this.randomCard(currentCards)
+    }
     return(card);
   }
 
   updateCard(){
-    console.log("hello")
-    // const currentCards = this.state.cards;
-    // this.setState({
-    //   currentCards: this.randomCard(currentCards)
-    // })
+    const currentCards = this.state.cards;
+    this.setState({
+      cards: currentCards,
+      currentCard: this.randomCard(currentCards)
+    })
+    console.log("button functioning")
   }
 
 
@@ -51,7 +57,7 @@ class App extends React.Component {
     return (
       <div className="App backdrop">
         <Cards name={this.state.currentCard.name
-              //cardImage={this.state.cards.cardImage}
+
         }/>
         <div className="btn-container">
           <SwapButton cardSwap={this.updateCard}/>
@@ -63,3 +69,8 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+// setState updates the state of component
+// .state refers to object state for component
+// this. responding to runtime binding, it refers to object
