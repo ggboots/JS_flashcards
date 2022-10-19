@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class SwapButton extends Component{
+class SwapCardButton extends Component{
     constructor(props){
         super(props);
 
@@ -20,4 +20,4 @@ class SwapButton extends Component{
     }
 }
 
-export default SwapButton
+export default SwapCardButton

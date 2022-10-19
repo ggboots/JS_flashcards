@@ -1,32 +1,40 @@
 import React, {Component} from "react";
-import Cards from "./components/Cards.js"
-import SwapButton from "./components/SwapButton.js"
+//import { initializeApp } from "firebase/app";
+//import { getDatabase, ref, onValue } from "firebase/database"
+//import * as dotenv from 'dotenv'
+//dotenv.config()
 
-import testImage from "./assests/webgl.png";
-import testImage2 from "./assests/opengl_logo.png";
+// components
+import Cards from "./components/Cards.js"
+import SwapCardButton from "./components/SwapCardButton.js"
+//import { firebaseConfig } from "./components/firebaseConfig.js";
+
 
 class App extends Component {
   constructor(props){
     super(props);
 
-    // was refering to components state, updateCard is not there
+    //this.app = initializeApp()
+    //this.database = getDatabase(app)
+    //ref
+    //this.database = this.app.database().ref().child('cards');
     this.updateCard = this.updateCard.bind(this);
 
     this.state = {
-      cards: [
-          {id:1, name: "demo1"},
-          {id:2, name: "demo2"},
-          {id:3, name: "demo3"},
-          {id:4, name: "demo4"},
-          {id:5, name: "demo5"},
-          {id:6, name: "demo6"}
-      ],
+      cards: [],
       currentCard: {}
     }
   }
 
   componentDidMount(){
     const currentCards = this.state.cards;
+
+    // this.database.on('card_added_to_deck', snap => {
+    //   currentCards.push({
+    //     id: snap.key,
+
+    //   })
+    // })
 
     this.setState({
       cards: currentCards,
@@ -49,18 +57,21 @@ class App extends Component {
       cards: currentCards,
       currentCard: this.randomCard(currentCards)
     })
-    console.log("button functioning")
   }
 
 
+  if(loading){
+    return <h1>Loading ...</h1>
+  }
   render(){
     return (
       <div className="App backdrop">
-        <Cards name={this.state.currentCard.name
-
-        }/>
+        <Cards 
+        // name={this.state.currentCard.name
+        // }
+        />
         <div className="btn-container">
-          <SwapButton cardSwap={this.updateCard}/>
+          <SwapCardButton cardSwap={this.updateCard}/>
           <button className="btn">Flip</button>
         </div>
     </div>
@@ -69,8 +80,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// setState updates the state of component
-// .state refers to object state for component
-// this. responding to runtime binding, it refers to object

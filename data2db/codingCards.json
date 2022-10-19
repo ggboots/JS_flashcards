@@ -1,0 +1,28 @@
+{
+    "cards": [
+        {
+            "id": 1,
+            "cardNumber":1,
+            "front": true,
+            "img": null
+        },
+        {
+            "id": 2,
+            "cardNumber":1,
+            "front": false,
+            "img": null
+        },
+        {
+            "id": 3,
+            "cardNumber":2,
+            "front": true,
+            "img": null
+        },
+        {
+            "id": 4,
+            "cardNumber":2,
+            "front": false,
+            "img": null
+        }
+    ]
+}
