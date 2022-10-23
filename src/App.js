@@ -1,40 +1,43 @@
 import React, {Component} from "react";
-//import { initializeApp } from "firebase/app";
-//import { getDatabase, ref, onValue } from "firebase/database"
-//import * as dotenv from 'dotenv'
-//dotenv.config()
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, onValue } from "firebase/database"
 
 // components
 import Cards from "./components/Cards.js"
 import SwapCardButton from "./components/SwapCardButton.js"
-//import { firebaseConfig } from "./components/firebaseConfig.js";
+import { firebaseConfig } from "./components/firebaseConfig.js";
 
 
 class App extends Component {
   constructor(props){
     super(props);
 
-    //this.app = initializeApp()
-    //this.database = getDatabase(app)
+    this.app = initializeApp(firebaseConfig)
+    this.database = getDatabase()
     //ref
     //this.database = this.app.database().ref().child('cards');
     this.updateCard = this.updateCard.bind(this);
-
+    
     this.state = {
       cards: [],
       currentCard: {}
     }
   }
-
+  
   componentDidMount(){
     const currentCards = this.state.cards;
+    
+    const card_added_to_deck = ref(this.database, 'cards/');
+    onValue(card_added_to_deck, (snapshot) => {
+      //const data = snapshot.val();
+      currentCards.push({
+        id: snapshot.val().key,
+        name: snapshot.val().name
+      })
+      
+    })
+  
 
-    // this.database.on('card_added_to_deck', snap => {
-    //   currentCards.push({
-    //     id: snap.key,
-
-    //   })
-    // })
 
     this.setState({
       cards: currentCards,
@@ -52,13 +55,14 @@ class App extends Component {
   }
 
   updateCard(){
-    const currentCards = this.state.cards;
-    this.setState({
-      cards: currentCards,
-      currentCard: this.randomCard(currentCards)
-    })
-  }
 
+
+    // const currentCards = this.state.cards;
+    // this.setState({
+    //   cards: currentCards,
+    //   currentCard: this.randomCard(currentCards)
+    // })
+  }
 
   if(loading){
     return <h1>Loading ...</h1>
