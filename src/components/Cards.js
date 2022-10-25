@@ -3,7 +3,7 @@ import React from "react";
 const Cards = (props) => (
         <div className="cards">
             <div className="front">
-                <p>{props.name}</p>
+                <p>{props.cardNumber}</p>
             </div>
             <div className="back">
                 <p>Back</p>

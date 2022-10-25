@@ -2,6 +2,7 @@
 
 # not to uppload
 .env
+bin.js
 
 # dependencies
 /node_modules

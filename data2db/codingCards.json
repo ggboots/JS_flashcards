@@ -3,26 +3,51 @@
         {
             "id": 1,
             "cardNumber":1,
-            "front": true,
-            "img": null
+            "cardName": "variable hoisting",
+            "frontShowing": true,
+            "imgFront": null,
+            "imgBack": null
+            
         },
         {
             "id": 2,
-            "cardNumber":1,
-            "front": false,
-            "img": null
+            "cardNumber":2,
+            "cardName": "typeof keyword",
+            "frontShowing": true,
+            "imgFront": null,
+            "imgBack": null
         },
         {
             "id": 3,
-            "cardNumber":2,
-            "front": true,
-            "img": null
+            "cardNumber":3,
+            "cardName": "constructor vs literals",
+            "frontShowing": true,
+            "imgFront": null,
+            "imgBack": null
         },
         {
             "id": 4,
-            "cardNumber":2,
-            "front": false,
-            "img": null
+            "cardNumber":4,
+            "cardName": "for in loop",
+            "frontShowing": true,
+            "imgFront": null,
+            "imgBack": null
+        },
+        {
+            "id": 5,
+            "cardNumber":5,
+            "cardName": "for of loop",
+            "frontShowing": true,
+            "imgFront": null,
+            "imgBack": null
+        },
+        {
+            "id": 6,
+            "cardNumber":6,
+            "cardName": "sorting arrays",
+            "frontShowing": true,
+            "imgFront": null,
+            "imgBack": null
         }
     ]
 }
