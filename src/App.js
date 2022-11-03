@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, onValue, get, child } from "firebase/database"
+import { getDatabase, ref, onValue} from "firebase/database"
 
 // components
 import Cards from "./components/Cards.js"
@@ -68,18 +68,11 @@ class App extends Component {
 
   }
 
-  cardsLoading(){
-    let loader = document.getElementById('preloader');
-    window.addEventListener('load', function() {
-      loader.style.display = 'none';
-    })
-  }
-
   render(){
     return (
       <div className="App backdrop">
         <Cards 
-          cardNumber={this.state.currentCard.cardNumber}
+          cardName={this.state.currentCard.cardName}
         // name={this.state.currentCard.name
         // }
         />
