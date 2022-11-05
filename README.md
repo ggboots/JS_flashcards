@@ -17,3 +17,15 @@ additional
 ref:
 https://www.youtube.com/watch?v=x3IWvqMv8Ms
 https://www.youtube.com/watch?v=D4e_TTY2dfI
+
+
+cloud functions:
+https://www.youtube.com/watch?v=rERRuBjxJ80
+https://firebase.google.com/docs/functions/video-series
+
+https://firebase.google.com/docs/functions/callable
+https://www.youtube.com/watch?v=x3IWvqMv8Ms
+
+
+https://create-react-app.dev/docs/adding-custom-environment-variables/
+https://firebase.google.com/docs/functions/config-env

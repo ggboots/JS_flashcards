@@ -5,7 +5,17 @@ import { getDatabase, ref, onValue} from "firebase/database"
 // components
 import Cards from "./components/Cards.js"
 import SwapCardButton from "./components/SwapCardButton.js"
-//import { firebaseConfig } from "./components/firebaseConfig.js";
+import { firebaseConfig } from "./components/firebaseConfig.js"
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCembfOvRnUbtqpm8Ytk5nxwBKyXVpmPqw",
+//   authDomain: "javascript-flashcards-29bc7.firebaseapp.com",
+//   databaseURL: "https://javascript-flashcards-29bc7-default-rtdb.asia-southeast1.firebasedatabase.app",
+//   projectId: "javascript-flashcards-29bc7",
+//   storageBucket: "javascript-flashcards-29bc7.appspot.com",
+//   messagingSenderId: "601241307061",
+//   appId: "1:601241307061:web:72bb1c25319921e8dffbfc"
+// };
 
 
 class App extends Component {
