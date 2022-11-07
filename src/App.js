@@ -1,22 +1,14 @@
 import React, {Component} from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue} from "firebase/database"
+// import { getFirestore } from "firebase-admin/firestore";
 
 // components
 import Cards from "./components/Cards.js"
 import SwapCardButton from "./components/SwapCardButton.js"
-import { firebaseConfig } from "./components/firebaseConfig.js"
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCembfOvRnUbtqpm8Ytk5nxwBKyXVpmPqw",
-//   authDomain: "javascript-flashcards-29bc7.firebaseapp.com",
-//   databaseURL: "https://javascript-flashcards-29bc7-default-rtdb.asia-southeast1.firebasedatabase.app",
-//   projectId: "javascript-flashcards-29bc7",
-//   storageBucket: "javascript-flashcards-29bc7.appspot.com",
-//   messagingSenderId: "601241307061",
-//   appId: "1:601241307061:web:72bb1c25319921e8dffbfc"
-// };
-
+// import { getFirestore } from "firebase-admin/firestore";
+// import { firebaseConfig } from "./components/firebaseConfig.js"
+import { firebaseConfig } from "./bin";
 
 class App extends Component {
   constructor(props){
@@ -30,7 +22,7 @@ class App extends Component {
     
     this.state = {
       cards: [],
-      currentCard: {}
+      currentCard: {},
     }
   }
   
@@ -39,16 +31,21 @@ class App extends Component {
 
     // makes references to database
     // then foreach object in snapshot, push to currentCards var
-    const databaseRef = ref(this.database, 'cards/');
+    const databaseRef = ref(this.database);
     onValue(databaseRef, (snapshot) => {
       snapshot.forEach(function(snapshot){
         console.log(snapshot.val())
         currentCards.push({
-          cardNumber: snapshot.val().cardNumber,
-          cardName: snapshot.val().cardName,
-          frontShowing: snapshot.val().frontShowing,
-          imgFront: snapshot.val().imgFront,
-          imgBack: snapshot.val().imgBack,
+          // move to Cloud Storage for images
+          // cardNumber: snapshot.val().cardNumber,
+          // cardName: snapshot.val().cardName,
+          // frontShowing: snapshot.val().frontShowing,
+          // imgFront: snapshot.val().imgFront,
+          // imgBack: snapshot.val().imgBack,
+
+          // String value
+          name: snapshot.val().name,
+          description: snapshot.val().description
         })
       })
 
@@ -81,11 +78,12 @@ class App extends Component {
   render(){
     return (
       <div className="App backdrop">
-        <Cards 
-          cardName={this.state.currentCard.cardName}
-        // name={this.state.currentCard.name
-        // }
-        />
+        <div className="card-container">
+          <Cards 
+            name={this.state.currentCard.name}
+            description={this.state.currentCard.description}
+          />
+        </div>
         <div className="btn-container">
           <SwapCardButton cardSwap={this.updateCard}/>
           <button className="btn">Flip</button>

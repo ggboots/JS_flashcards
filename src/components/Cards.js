@@ -3,10 +3,10 @@ import React from "react";
 const Cards = (props) => (
         <div className="cards">
             <div className="front">
-                <p>{props.cardName}</p>
+                <p>{props.name}</p>
             </div>
             <div className="back">
-                <p>Back</p>
+                <p>{props.description}</p>
             </div>
         </div>
     )

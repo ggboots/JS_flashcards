@@ -1,3 +1,170 @@
-{
-    
-}
+[
+    {
+        "id":0,
+        "name":"Template Literal/ String",
+        "description":"enclosed with a back tick (`), can put variable into string with ${}"
+    },
+    {
+        "id":1,
+        "name":"Constructor",
+        "description":"used to initialize a object in a class"
+    },
+    {
+        "id":2,
+        "name":"Async/ Await",
+        "description":""
+    },
+    {
+        "id":3,
+        "name": "Regular Expression",
+        "description":""
+    },
+    {
+        "id":4,
+        "name": "Shadow DOM",
+        "description":""
+    },
+    {
+        "id":5,
+        "name": "Virtual DOM",
+        "description":""
+    },
+    {
+        "id":6,
+        "name": "Closures",
+        "description":""
+    },
+    {
+        "id":7,
+        "name": "Prototypes",
+        "description":""
+    },
+    {
+        "id":8,
+        "name": "Classes",
+        "description":""
+    },
+    {
+        "id":9,
+        "name": "Objects",
+        "description":""
+    },
+    {
+        "id":10,
+        "name": "Parameter/ Arguments",
+        "description":""
+    },
+    {
+        "id":11,
+        "name": "Recursion",
+        "description":""
+    },
+    {
+        "id":12,
+        "name": "Strict",
+        "description":""
+    },
+    {
+        "id":13,
+        "name": "Hoisting",
+        "description":""
+    },
+    {
+        "id":14,
+        "name": "Scope (Global/ Function/ Block)",
+        "description":""
+    },
+    {
+        "id":15,
+        "name": "Event Bubbling",
+        "description":""
+    },
+    {
+        "id":16,
+        "name": "Higher Order Functions",
+        "description":""
+    },
+    {
+        "id":17,
+        "name": "Modules (import/ export)",
+        "description":""
+    },
+    {
+        "id":18,
+        "name": "Destructing Objects",
+        "description":""
+    },
+    {
+        "id":19,
+        "name": "Destructing Array",
+        "description":""
+    },
+    {
+        "id":20,
+        "name": "Object Literals",
+        "description":""
+    },
+    {
+        "id":21,
+        "name": "Spread Operator",
+        "description":""
+    },
+    {
+        "id":22,
+        "name": "Rest Operator",
+        "description":""
+
+    },
+    {
+        "id":23,
+        "name": "Trailing Commas",
+        "description":""
+    },
+    {
+        "id":24,
+        "name": ".Set()",
+        "description":""
+    },
+    {
+        "id":25,
+        "name": ".includes()",
+        "description":""
+    },
+    {
+        "id":26,
+        "name": ".maps()",
+        "description":""
+    },
+    {
+        "id":27,
+        "name": ".filter()",
+        "description":""
+    },
+    {
+        "id":28,
+        "name": ".sort()",
+        "description":""
+    },
+    {
+        "id":29,
+        "name": ".find()",
+        "description":""
+    },
+    {
+        "id":30,
+        "name": ".split()",
+        "description":""
+    },
+    {
+        "id":31,
+        "name": ".reduce()",
+        "description":""
+
+    },
+    {
+        "id":32,
+        "name": "reverse()",
+        "description":""
+
+    }
+]
