@@ -12,7 +12,8 @@
     {
         "id":2,
         "name":"Async/ Await",
-        "description":""
+        "description":"",
+        "image": "../codingCards/9_c5_front.png"
     },
     {
         "id":3,

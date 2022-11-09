@@ -16,7 +16,7 @@
             "cardName": "typeof keyword",
             "cardDescription":"typeof is a javascript keyword that will return the type of variable when you call it",
             "frontShowing": true,
-            "imgFront": null,
+            "imgFront": "",
             "imgBack": null
         },
         {

@@ -11,7 +11,7 @@ class SwapCardButton extends Component{
         this.props.cardSwap();
     }
 
-    render(props){
+    render(){
         return(
             <div className="btn-cardSwap">
                 <button className="btn" onClick={this.cardSwap}>Draw New Card</button>

@@ -1,8 +1,6 @@
 import React from 'react'
 import { initializeApp } from 'firebase/app'
-
-
-import { child, get, getDatabase, onValue, ref } from 'firebase/database'
+import { child, get, getDatabase, ref } from 'firebase/database'
 
 function CheckFirebase(props){
 
@@ -24,7 +22,6 @@ function CheckFirebase(props){
   
 //additional config required for .env variables
 // https://firebase.google.com/docs/functions/config-env
-
 
     return (
         <Cards cardNumber={this.cardToPort}/>

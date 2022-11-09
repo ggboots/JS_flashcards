@@ -2,10 +2,12 @@ import React, {Component} from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue} from "firebase/database"
 // import { getFirestore } from "firebase-admin/firestore";
+import { getDownloadURL, getStorage } from "firebase/storage";
+import { ref as sRef } from "firebase/storage";
 
-// components
 import Cards from "./components/Cards.js"
 import SwapCardButton from "./components/SwapCardButton.js"
+import FlipCardButton from "./components/FlipCardButton.js";
 // import { getFirestore } from "firebase-admin/firestore";
 // import { firebaseConfig } from "./components/firebaseConfig.js"
 import { firebaseConfig } from "./bin";
@@ -14,55 +16,77 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    // firebase config needs to be in constructor to create object
-
     this.app = initializeApp(firebaseConfig)
     this.database = getDatabase()
+    this.storage = getStorage()
+
     this.updateCard = this.updateCard.bind(this);
     
     this.state = {
       cards: [],
       currentCard: {},
+      currentFront: {},
+      currentBack: {}
     }
   }
+  
   
   componentDidMount(){
     const currentCards = this.state.cards;
 
-    // makes references to database
-    // then foreach object in snapshot, push to currentCards var
-    const databaseRef = ref(this.database);
+    const databaseRef = ref(this.database, 'cards');
     onValue(databaseRef, (snapshot) => {
       snapshot.forEach(function(snapshot){
         console.log(snapshot.val())
         currentCards.push({
-          // move to Cloud Storage for images
-          // cardNumber: snapshot.val().cardNumber,
-          // cardName: snapshot.val().cardName,
-          // frontShowing: snapshot.val().frontShowing,
-          // imgFront: snapshot.val().imgFront,
-          // imgBack: snapshot.val().imgBack,
-
-          // String value
-          name: snapshot.val().name,
-          description: snapshot.val().description
+        
+          cardNumber: snapshot.val().cardNumber,
+          cardName: snapshot.val().cardName,
+          cardDescription: snapshot.val().cardDescription,
+          frontShowing: snapshot.val().frontShowing,
+          imgFront: snapshot.val().imgFront,
+          imgBack: snapshot.val().imgBack,
         })
       })
 
-      //after db ref, set state of new object values
       this.setState({
         cards: currentCards,
-        currentCard: this.getRandomCard(currentCards)
+        currentCard: this.getRandomCard(currentCards),
       })
-      
     });
+  }
+
+  componentDidUpdate(){
+    const StorageRef = sRef(this.storage);
+    const cardFrontRefToString = this.state.currentCard.imgFront.toString()
+    const cardBackRefToString = this.state.currentCard.imgBack.toString()
+    const cardFrontRef = sRef(StorageRef, `${cardFrontRefToString}`)
+    const cardBackRef = sRef(StorageRef, `${cardBackRefToString}`)
+
+      getDownloadURL(cardFrontRef)
+        .then((url) => {
+          const image = document.getElementById('front-image');
+          image.setAttribute('src', url)
+        })
+        .catch((error) => {
+
+        })
+        
+      getDownloadURL(cardBackRef)
+        .then((url) => {
+          const backImage = document.getElementById('back-image')
+          backImage.setAttribute('src', url)
+        })
+        .catch((error) => {
+
+        })
   }
 
   getRandomCard(currentCards){
     var card = currentCards[Math.floor(Math.random() * currentCards.length)];
-    // if(card === this.state.currentCard){
-    //   this.getRandomCard(currentCards)
-    // }
+    // this.setState({
+    //   currentFront: card.imgFront,
+    // })
     return(card);
   }
 
@@ -73,6 +97,16 @@ class App extends Component {
       currentCard: this.getRandomCard(currentCards)
     })
 
+    
+
+    // getDownloadURL(cardBackRef)
+    //   .then((url) => {
+    //     const backImage = document.getElementById('back-image')
+    //     backImage.setAttribute('src', url)
+    //   })
+    //   .catch((error) => {
+
+    //   })
   }
 
   render(){
@@ -80,13 +114,14 @@ class App extends Component {
       <div className="App backdrop">
         <div className="card-container">
           <Cards 
-            name={this.state.currentCard.name}
-            description={this.state.currentCard.description}
+            cardName={this.state.currentCard.cardName}
+            cardDescription={this.state.currentCard.cardDescription}
+            frontImage={this.state.currentCard.imgFront}
           />
         </div>
         <div className="btn-container">
           <SwapCardButton cardSwap={this.updateCard}/>
-          <button className="btn">Flip</button>
+          <FlipCardButton className="btn"/>
         </div>
     </div>
   );
@@ -94,8 +129,81 @@ class App extends Component {
 }
 
 export default App;
-// ref - references a place in the database, first parameter is database
-// the second is the place within database, if empty, will just choose root as dir
 
-// onValue() - is called everytime there is change to the db
-// may consider moving to get(), to reduce frequency of calls to db
+
+
+// --> Realtime database
+// 
+// class App extends Component {
+//   constructor(props){
+//     super(props);
+
+//     this.app = initializeApp(firebaseConfig)
+//     this.database = getDatabase()
+//     this.storage = getStorage()
+
+//     this.updateCard = this.updateCard.bind(this);
+    
+//     this.state = {
+//       cards: [],
+//       currentCard: {},
+//     }
+//   }
+  
+//   componentDidMount(){
+//     const currentCards = this.state.cards;
+
+//     const databaseRef = ref(this.database);
+//     onValue(databaseRef, (snapshot) => {
+//       snapshot.forEach(function(snapshot){
+//         console.log(snapshot.val())
+//         currentCards.push({
+        
+
+//           // String value
+//           name: snapshot.val().name,
+//           description: snapshot.val().description,
+//           image: snapshot.val().image
+//         })
+//       })
+
+//       this.setState({
+//         cards: currentCards,
+//         currentCard: this.getRandomCard(currentCards)
+//       })
+      
+//     });
+//   }
+
+//   getRandomCard(currentCards){
+//     var card = currentCards[Math.floor(Math.random() * currentCards.length)];
+//     return(card);
+//   }
+
+//   updateCard(){
+//     const currentCards = this.state.cards
+//     this.setState({
+//       cards: currentCards,
+//       currentCard: this.getRandomCard(currentCards)
+//     })
+
+//   }
+
+//   render(){
+//     return (
+//       <div className="App backdrop">
+//         <div className="card-container">
+//           <Cards 
+//             name={this.state.currentCard.name}
+//             description={this.state.currentCard.description}
+//             image={this.state.currentCard.image}
+//           />
+//         </div>
+//         <div className="btn-container">
+//           <SwapCardButton cardSwap={this.updateCard}/>
+//           <button className="btn">Flip</button>
+//         </div>
+//     </div>
+//   );
+// }
+// }
