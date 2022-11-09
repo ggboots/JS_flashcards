@@ -26,7 +26,8 @@ class App extends Component {
       cards: [],
       currentCard: {},
       currentFront: {},
-      currentBack: {}
+      currentBack: {},
+      frontShowing: true
     }
   }
   
@@ -71,7 +72,7 @@ class App extends Component {
         .catch((error) => {
 
         })
-        
+
       getDownloadURL(cardBackRef)
         .then((url) => {
           const backImage = document.getElementById('back-image')

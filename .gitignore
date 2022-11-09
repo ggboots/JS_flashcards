@@ -1,7 +1,9 @@
 # not to upload
 .env
 codingCards
+TheCodingCards.json
 bin.js
+/functions/.env
 
 # dependencies
 /node_modules

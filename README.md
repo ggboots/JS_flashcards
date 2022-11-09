@@ -17,6 +17,7 @@ add firebase config as .env file
 using realtime database, as using string data as reference for when i do indeed reference firestore storage
 TODO:
 
+* not using firebase functions, as paid tier, keeping API_Keys local and not in repo
 1. .env cloud firestore config --using cloud functions
 https://firebase.google.com/docs/functions/config-env
 
@@ -25,23 +26,4 @@ https://firebase.google.com/docs/functions/config-env
 3. coding card UI 
 4. JSON data contains raw text, use that for accessibility 
 
-additional 
-- firebase web login
-- Hosting App (research best for Firebase)
 
-
-ref:
-https://www.youtube.com/watch?v=x3IWvqMv8Ms
-https://www.youtube.com/watch?v=D4e_TTY2dfI
-
-
-cloud functions:
-https://www.youtube.com/watch?v=rERRuBjxJ80
-https://firebase.google.com/docs/functions/video-series
-
-https://firebase.google.com/docs/functions/callable
-https://www.youtube.com/watch?v=x3IWvqMv8Ms
-
-
-https://create-react-app.dev/docs/adding-custom-environment-variables/
-https://firebase.google.com/docs/functions/config-env
