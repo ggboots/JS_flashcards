@@ -23,8 +23,6 @@ class App extends Component {
     this.state = {
       cards: [],
       currentCard: {},
-      currentFront: {},
-      currentBack: {},
       frontShowing: true
     }
   }
@@ -36,7 +34,6 @@ class App extends Component {
     onValue(databaseRef, (snapshot) => {
       snapshot.forEach(function(snapshot){
         currentCards.push({
-        
           cardNumber: snapshot.val().cardNumber,
           cardName: snapshot.val().cardName,
           cardDescription: snapshot.val().cardDescription,
@@ -63,18 +60,14 @@ class App extends Component {
           const image = document.getElementById('front-image');
           image.setAttribute('src', url)
         })
-        .catch((error) => {
-
-        })
+        .catch((error) => {})
 
       getDownloadURL(cardBackRef)
         .then((url) => {
           const backImage = document.getElementById('back-image')
           backImage.setAttribute('src', url)
         })
-        .catch((error) => {
-
-        })
+        .catch((error) => {})
         
   }
 
@@ -82,7 +75,6 @@ class App extends Component {
     const checkRepeatCard = this.state.currentCard.cardNumber; 
     let card = currentCards[Math.floor(Math.random() * currentCards.length)];
 
-    // check for same value, and then rerandomis until statement is happy
     while(checkRepeatCard === card.cardNumber){
       card = currentCards[Math.floor(Math.random() * currentCards.length)];
     }
@@ -100,8 +92,6 @@ class App extends Component {
 
   }
 
-  // change to arrow function
-  // https://bobbyhadz.com/blog/react-typeerror-cannot-read-property-setstate-of-undefined
   flipCard = () => {
     if(this.state.frontShowing === true){
       document.getElementById('card').style.transform = 'rotateY(180deg)';
@@ -126,9 +116,11 @@ class App extends Component {
             frontImage={this.state.currentCard.imgFront}
           />
         </div>
-        <div className="btn-container">
-          <SwapCardButton cardSwap={this.updateCard}/>
-          <FlipCardButton flipCard={this.flipCard}/>
+        <div className="btn-position">
+          <div className="btn-container">
+            <SwapCardButton cardSwap={this.updateCard}/>
+            <FlipCardButton flipCard={this.flipCard}/>
+          </div>
         </div>
     </div>
   );

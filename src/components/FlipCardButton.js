@@ -13,7 +13,7 @@ class FlipCardButton extends Component{
 
     render(props){
         return(
-            <div className="btn-cardFlip">
+            <div className="btn-flip-card">
                 <button className="btn" onClick={this.flipCard}>Flip Card</button>
             </div>
         )

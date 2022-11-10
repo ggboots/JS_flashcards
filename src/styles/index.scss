@@ -1,0 +1,113 @@
+/* @import "cards.css"; */
+
+* {
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.App{
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(#12181b 50%, #202737 100%);
+}
+
+.card-container {
+  padding-top: 25px;
+  position: relative;
+  justify-content: center;
+  display:flex;
+  margin: auto;
+  perspective:2000px;
+  transition: ease-in;
+  
+  .card {
+    display:flex;
+    transform-style: preserve-3d;
+    transition:  all 0.4s ease-in-out;
+    
+    .front{
+      /* display:block; */
+      display:flex;
+      justify-content:center;
+      position:absolute;
+      backface-visibility: hidden;
+      overflow:hidden; 
+      margin-left: auto;
+      margin-right: auto;
+
+      #front-image{
+        height: 720px;
+        width: 400px;
+      }
+    }
+    
+    .back{
+      backface-visibility: hidden;
+      transform:rotateY(180deg);
+
+      #back-image{
+        height: 720px;
+        width: 400px;
+      }
+    }
+  }
+}
+
+.btn-position{
+  position: relative;
+  justify-content:center;
+  padding-top: 20px;
+}
+
+.btn-container{
+  position: relative;
+  justify-content:space-evenly;
+  display: flex;
+  .btn {
+    display:block;
+    width: 180px;
+    height: 60px;
+    margin:auto;
+    margin-top:20px;
+    font-size : 1 rem;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .btn:active{
+    position:relative;
+    top:3px;
+    box-shadow: 0px 0px #1f2226;
+    background: #2c3e50;
+    border:none;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  * {
+
+  }
+}
+  
+@media screen and (max-width: 480px){
+    *{
+      .card-container{
+        padding-top: 5px;
+
+        .card{
+          height: 720px;
+          width: 400px;
+
+          #front{
+            height: 100%;
+            width: 100%;
+          }
+          #back{
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+}

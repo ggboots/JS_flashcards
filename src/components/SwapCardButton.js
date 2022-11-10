@@ -13,7 +13,7 @@ class SwapCardButton extends Component{
 
     render(){
         return(
-            <div className="btn-cardSwap">
+            <div className="btn-swap-card">
                 <button className="btn" onClick={this.cardSwap}>Draw New Card</button>
             </div>
         )

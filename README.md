@@ -3,11 +3,11 @@ Coding Cards Flash cards for Javascript and Data Structures
 
 ## Project Tools - In Description
 * React App 
-- - 
+---
 * Realtime Database - faster load time over Firestore db    
 ---
 * Firebase cloud Functions
-* * 
+* * *
 * Firebase Storage
 
 *Did play around with firestore cloud and mongodb to see how they would differ
@@ -21,7 +21,7 @@ add firebase config as .env file
 
 ** out of respect to the developer who made these cards, i have not submitted to any cloud or repo which can be publicly accessed 
 
-
+.gif
 
 Setup Guide:
 1. Run 'npm install'
@@ -30,4 +30,5 @@ Setup Guide:
 4. Upload Images to FirebaseStorage
 5. Enjoy 🤙🏽
 
+![Firebase React](/src/styles/FirebaseReact.webp)
 
