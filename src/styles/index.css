@@ -1,45 +1,93 @@
-@import "cards.css";
+/* @import "cards.css"; */
 
 * {
   margin: 0;
   padding:0;
+  box-sizing: border-box;
 }
 
-.backdrop{
-  height:100vh;
-  width:100vw;
+.App{
+  height: 100vh;
+  width: 100vw;
   z-index:-1;
   background-color:gray; 
-  opacity:0.4; 
+  /* opacity:0.4;  */
   display:flex;
-  align-items:center;
+  /* align-items:center; */
+  /* justify-content:center; */
+  /* flex-direction:column; */
+}
+
+.card-container {
+  padding-top: 25px;
+  display:flex;
+  position:fixed;
+  left: 50%;
+  right: 50%;
+  margin: auto;
+  /* height: 400px; */
+  /* width: 400px; */
+  perspective:700px;
+  transition: ease-in;
+}
+
+.card {
+  display:flex;
+  /* height: 400px; */
+  /* width: 500px; */
+  border-style:solid;
+  border-color:black;
+  position:absolute;
+  /* z-index:1; */
   justify-content:center;
-  flex-direction:column;
+  transform-style: preserve-3d;
+  transition:  all 0.4s ease-in-out;
 }
 
-.cards{
-  width:540px;
-  height:620px;
+
+.front{
+  /* display:block; */
+  display:flex;
+  justify-content:center;
+  position:absolute;
+  /* backface-visibility: hidden; */
+  /* overflow:hidden; */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-img{
-  width:100%;
+.back{
+  backface-visibility: hidden;
+  transform:rotateY(180deg);
 }
+
 
 .btn-container{
+  position:relative;
   display:flex;
   flex-direction:row;
   justify-content:space-evenly;
-  width:560px;
-  height:32px;
-  padding-top:15px;
+  /* width:560px; */
+  /* height:32px; */
+  padding-top:5px;
 }
 
 .btn {
-  width: 82px;
+  display:block;
+  width: 180px;
+  height: 60px;
+  margin:auto;
+  margin-top:20px;
+  font-size : 1 rem;
+  text-align: center;
+  text-decoration: none;
 }
 
 .btn:active{
-  border:none;
+  position:relative;
+  top:3px;
   box-shadow: 0px 0px #1f2226;
+  background: #2c3e50;
+  border:none;
 }
+

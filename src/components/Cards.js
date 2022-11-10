@@ -1,14 +1,12 @@
 import React from "react";
 
 const Cards = (props) => (
-        <div id="cards" className="cards">
+        <div id="card" className="card">
             <div className="front">
-                <p>{props.cardName}</p>
-                <img id='front-image' height="200px" width="120px" alt=""/>
+                <img id='front-image' height="640px" width="320px" alt=""/>
             </div>
             <div className="back">
-                <p>{props.cardDescription}</p>
-                <img id='back-image' height="200px" width="120px" alt=""/>
+                <img id='back-image' height="640px" width="320px" alt=""/>
             </div>
         </div>
     )

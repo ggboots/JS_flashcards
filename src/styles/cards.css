@@ -1,34 +1,39 @@
-.card-container {
+/* .card-container {
+    display:flex;
     margin: auto;
-    height: 700px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
     perspective:700px;
-    /* perspective is distance between z=0 and users */
-    /* https://developer.mozilla.org/en-US/docs/Web/CSS/perspective */
-
+    position:relative;
+    transition: ease-in;
 }
 
-.cards {
-    height: 500px;
+.card {
+    display:flex;
+    height: 400px;
     width: 500px;
     border-style:solid;
     border-color:black;
-    z-index:1;
-    display:flex;
-    align-items:center;
+    position:absolute;
+    justify-content:center;
     transform-style: preserve-3d;
     transition:  all 0.4s ease-in-out;
 }
 
-.cards:hover{
-    /* transform:rotateY(180deg); */
-}
 
 .front{
-    display:block;
-    backface-visibility: hidden;
+
+    display:flex;
+    justify-content:center;
+    position:absolute;
+    /* backface-visibility: hidden; */
+    /* overflow:hidden; */
+    margin-left: auto;
+    margin-right: auto;
 }
   
 .back{
+    backface-visibility: hidden;
     transform:rotateY(180deg);
-}
+} */
+
