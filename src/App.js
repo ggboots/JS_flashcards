@@ -4,6 +4,7 @@ import { getDatabase, ref, onValue} from "firebase/database"
 import { getDownloadURL, getStorage } from "firebase/storage";
 import { ref as sRef } from "firebase/storage";
 import { firebaseConfig } from "./bin";
+// import { firebaseConfig } from "./components/firebase.config.js";
 
 import Cards from "./components/Cards.js"
 import SwapCardButton from "./components/SwapCardButton.js"
